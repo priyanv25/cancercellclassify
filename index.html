@@ -1,0 +1,40 @@
+
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<!-- Main Input For Receiving Query to our ML -->
+         <h1>Cancer cell Classification</h1>
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Clump" placeholder="CLUMP" required="required" />
+        <input type="text" name="UnifSize" placeholder="UNIFORMITY OF CELL SIZE" required="required" />
+	<input type="text" name="UnifShape" placeholder="UNIFORMITY OF CELL SHAPE" required="required" />
+        <input type="text" name="MargAdh" placeholder="MARGINAL ADHESION" required="required" />
+             <input type="text" name="SingEpiSize" placeholder="single epithilial cell size" required="required" />
+              <input type="text" name="BareNuc" placeholder="Bare Nuceloli" required="required" />
+           
+            <input type="text" name="NormNucl" placeholder="Normal nucleoli" required="required" />
+            <input type="text" name="Mit" placeholder="Mitosis" required="required" />
+           <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        
+    </form>
+    <br>
+   <br>
+   {{            prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
